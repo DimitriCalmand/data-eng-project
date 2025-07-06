@@ -10,7 +10,9 @@ object SparkAnalyzer extends App {
     .getOrCreate()
 
   // Lire les fichiers JSON stockés (inspiré de Spark SQL JSON docs:contentReference[oaicite:7]{index=7})
-  val df = spark.read.json("drones_output.json")  
+  val df = spark.read.json("drones_output.json")
+  df.printSchema()
+  df.show(false)  
   df.createOrReplaceTempView("drones")
 
   // Q1: Nombre total de messages par drone
