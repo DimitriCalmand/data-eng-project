@@ -333,7 +333,7 @@
 [2025-07-06 15:09:19,932] INFO Started oeje10s.ServletContextHandler@23e44287{ROOT,/,b=null,a=AVAILABLE,h=oeje10s.SessionHandler@2b8d084{STARTED}} (org.eclipse.jetty.ee10.servlet.ServletContextHandler:1051)
 [2025-07-06 15:09:19,932] INFO REST resources initialized; server is started and ready to handle requests (org.apache.kafka.connect.runtime.rest.RestServer:308)
 [2025-07-06 15:09:19,934] INFO Kafka Connect started (org.apache.kafka.connect.runtime.Connect:77)
-[2025-07-06 15:09:19,948] ERROR Failed to create connector for ../kafka-connect/drones-sink.properties (org.apache.kafka.connect.cli.ConnectStandalone:87)
+[2025-07-06 15:09:19,948] ERROR Failed to create connector for ../kafka-connect/bins-sink.properties (org.apache.kafka.connect.cli.ConnectStandalone:87)
 [2025-07-06 15:09:19,948] ERROR Stopping after connector error (org.apache.kafka.connect.cli.ConnectStandalone:99)
 java.util.concurrent.ExecutionException: org.apache.kafka.connect.errors.ConnectException: Failed to find any class that implements Connector and which name matches org.apache.kafka.connect.file.FileStreamSinkConnector, available connectors are: PluginDesc{klass=class org.apache.kafka.connect.mirror.MirrorCheckpointConnector, name='org.apache.kafka.connect.mirror.MirrorCheckpointConnector', version='4.0.0', encodedVersion=4.0.0, type=source, typeName='source', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.mirror.MirrorHeartbeatConnector, name='org.apache.kafka.connect.mirror.MirrorHeartbeatConnector', version='4.0.0', encodedVersion=4.0.0, type=source, typeName='source', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.mirror.MirrorSourceConnector, name='org.apache.kafka.connect.mirror.MirrorSourceConnector', version='4.0.0', encodedVersion=4.0.0, type=source, typeName='source', location='classpath'}
 	at org.apache.kafka.connect.util.ConvertingFutureCallback.result(ConvertingFutureCallback.java:135) ~[connect-runtime-4.0.0.jar:?]
@@ -1146,8 +1146,8 @@ Caused by: org.apache.kafka.connect.errors.ConnectException: Failed to find any 
 [2025-07-06 15:14:45,302] INFO Kafka Connect started (org.apache.kafka.connect.runtime.Connect:77)
 [2025-07-06 15:14:45,318] INFO AbstractConfig values: 
  (org.apache.kafka.common.config.AbstractConfig:371)
-[2025-07-06 15:14:45,332] INFO [drones-file-sink|worker] Creating connector drones-file-sink of type org.apache.kafka.connect.file.FileStreamSinkConnector (org.apache.kafka.connect.runtime.Worker:312)
-[2025-07-06 15:14:45,334] INFO [drones-file-sink|worker] SinkConnectorConfig values: 
+[2025-07-06 15:14:45,332] INFO [bins-file-sink|worker] Creating connector bins-file-sink of type org.apache.kafka.connect.file.FileStreamSinkConnector (org.apache.kafka.connect.runtime.Worker:312)
+[2025-07-06 15:14:45,334] INFO [bins-file-sink|worker] SinkConnectorConfig values: 
 	config.action.reload = restart
 	connector.class = org.apache.kafka.connect.file.FileStreamSinkConnector
 	errors.deadletterqueue.context.headers.enable = false
@@ -1160,16 +1160,16 @@ Caused by: org.apache.kafka.connect.errors.ConnectException: Failed to find any 
 	errors.tolerance = none
 	header.converter = null
 	key.converter = null
-	name = drones-file-sink
+	name = bins-file-sink
 	predicates = []
 	tasks.max = 1
 	tasks.max.enforce = true
-	topics = [drones]
+	topics = [bins]
 	topics.regex = 
 	transforms = []
 	value.converter = null
  (org.apache.kafka.common.config.AbstractConfig:371)
-[2025-07-06 15:14:45,334] INFO [drones-file-sink|worker] EnrichedConnectorConfig values: 
+[2025-07-06 15:14:45,334] INFO [bins-file-sink|worker] EnrichedConnectorConfig values: 
 	config.action.reload = restart
 	connector.class = org.apache.kafka.connect.file.FileStreamSinkConnector
 	errors.deadletterqueue.context.headers.enable = false
@@ -1182,21 +1182,21 @@ Caused by: org.apache.kafka.connect.errors.ConnectException: Failed to find any 
 	errors.tolerance = none
 	header.converter = null
 	key.converter = null
-	name = drones-file-sink
+	name = bins-file-sink
 	predicates = []
 	tasks.max = 1
 	tasks.max.enforce = true
-	topics = [drones]
+	topics = [bins]
 	topics.regex = 
 	transforms = []
 	value.converter = null
  (org.apache.kafka.common.config.AbstractConfig:371)
-[2025-07-06 15:14:45,338] INFO [drones-file-sink|worker] Instantiated connector drones-file-sink with version 4.0.0 of type class org.apache.kafka.connect.file.FileStreamSinkConnector (org.apache.kafka.connect.runtime.Worker:334)
-[2025-07-06 15:14:45,339] INFO [drones-file-sink|worker] Finished creating connector drones-file-sink (org.apache.kafka.connect.runtime.Worker:355)
-[2025-07-06 15:14:45,340] INFO [drones-file-sink|worker] AbstractConfig values: 
-	file = drones_output.json
+[2025-07-06 15:14:45,338] INFO [bins-file-sink|worker] Instantiated connector bins-file-sink with version 4.0.0 of type class org.apache.kafka.connect.file.FileStreamSinkConnector (org.apache.kafka.connect.runtime.Worker:334)
+[2025-07-06 15:14:45,339] INFO [bins-file-sink|worker] Finished creating connector bins-file-sink (org.apache.kafka.connect.runtime.Worker:355)
+[2025-07-06 15:14:45,340] INFO [bins-file-sink|worker] AbstractConfig values: 
+	file = bins_output.json
  (org.apache.kafka.common.config.AbstractConfig:371)
-[2025-07-06 15:14:45,340] INFO [drones-file-sink|worker] Starting file sink connector writing to drones_output.json (org.apache.kafka.connect.file.FileStreamSinkConnector:58)
+[2025-07-06 15:14:45,340] INFO [bins-file-sink|worker] Starting file sink connector writing to bins_output.json (org.apache.kafka.connect.file.FileStreamSinkConnector:58)
 [2025-07-06 15:14:45,343] INFO SinkConnectorConfig values: 
 	config.action.reload = restart
 	connector.class = org.apache.kafka.connect.file.FileStreamSinkConnector
@@ -1210,11 +1210,11 @@ Caused by: org.apache.kafka.connect.errors.ConnectException: Failed to find any 
 	errors.tolerance = none
 	header.converter = null
 	key.converter = null
-	name = drones-file-sink
+	name = bins-file-sink
 	predicates = []
 	tasks.max = 1
 	tasks.max.enforce = true
-	topics = [drones]
+	topics = [bins]
 	topics.regex = 
 	transforms = []
 	value.converter = null
@@ -1232,17 +1232,17 @@ Caused by: org.apache.kafka.connect.errors.ConnectException: Failed to find any 
 	errors.tolerance = none
 	header.converter = null
 	key.converter = null
-	name = drones-file-sink
+	name = bins-file-sink
 	predicates = []
 	tasks.max = 1
 	tasks.max.enforce = true
-	topics = [drones]
+	topics = [bins]
 	topics.regex = 
 	transforms = []
 	value.converter = null
  (org.apache.kafka.common.config.AbstractConfig:371)
-[2025-07-06 15:14:45,347] INFO [drones-file-sink|task-0] Creating task drones-file-sink-0 (org.apache.kafka.connect.runtime.Worker:645)
-[2025-07-06 15:14:45,351] INFO [drones-file-sink|task-0] ConnectorConfig values: 
+[2025-07-06 15:14:45,347] INFO [bins-file-sink|task-0] Creating task bins-file-sink-0 (org.apache.kafka.connect.runtime.Worker:645)
+[2025-07-06 15:14:45,351] INFO [bins-file-sink|task-0] ConnectorConfig values: 
 	config.action.reload = restart
 	connector.class = org.apache.kafka.connect.file.FileStreamSinkConnector
 	errors.log.enable = false
@@ -1252,14 +1252,14 @@ Caused by: org.apache.kafka.connect.errors.ConnectException: Failed to find any 
 	errors.tolerance = none
 	header.converter = null
 	key.converter = null
-	name = drones-file-sink
+	name = bins-file-sink
 	predicates = []
 	tasks.max = 1
 	tasks.max.enforce = true
 	transforms = []
 	value.converter = null
  (org.apache.kafka.common.config.AbstractConfig:371)
-[2025-07-06 15:14:45,351] INFO [drones-file-sink|task-0] EnrichedConnectorConfig values: 
+[2025-07-06 15:14:45,351] INFO [bins-file-sink|task-0] EnrichedConnectorConfig values: 
 	config.action.reload = restart
 	connector.class = org.apache.kafka.connect.file.FileStreamSinkConnector
 	errors.log.enable = false
@@ -1269,36 +1269,36 @@ Caused by: org.apache.kafka.connect.errors.ConnectException: Failed to find any 
 	errors.tolerance = none
 	header.converter = null
 	key.converter = null
-	name = drones-file-sink
+	name = bins-file-sink
 	predicates = []
 	tasks.max = 1
 	tasks.max.enforce = true
 	transforms = []
 	value.converter = null
  (org.apache.kafka.common.config.AbstractConfig:371)
-[2025-07-06 15:14:45,352] INFO [drones-file-sink|task-0] TaskConfig values: 
+[2025-07-06 15:14:45,352] INFO [bins-file-sink|task-0] TaskConfig values: 
 	task.class = class org.apache.kafka.connect.file.FileStreamSinkTask
  (org.apache.kafka.common.config.AbstractConfig:371)
-[2025-07-06 15:14:45,352] INFO [drones-file-sink|task-0] Instantiated task drones-file-sink-0 with version 4.0.0 of type org.apache.kafka.connect.file.FileStreamSinkTask (org.apache.kafka.connect.runtime.Worker:664)
-[2025-07-06 15:14:45,353] INFO [drones-file-sink|task-0] JsonConverterConfig values: 
+[2025-07-06 15:14:45,352] INFO [bins-file-sink|task-0] Instantiated task bins-file-sink-0 with version 4.0.0 of type org.apache.kafka.connect.file.FileStreamSinkTask (org.apache.kafka.connect.runtime.Worker:664)
+[2025-07-06 15:14:45,353] INFO [bins-file-sink|task-0] JsonConverterConfig values: 
 	converter.type = key
 	decimal.format = BASE64
 	replace.null.with.default = true
 	schemas.cache.size = 1000
 	schemas.enable = false
  (org.apache.kafka.common.config.AbstractConfig:371)
-[2025-07-06 15:14:45,353] INFO [drones-file-sink|task-0] Set up the key converter class org.apache.kafka.connect.json.JsonConverter for task drones-file-sink-0 using the worker config (org.apache.kafka.connect.runtime.Worker:677)
-[2025-07-06 15:14:45,354] INFO [drones-file-sink|task-0] JsonConverterConfig values: 
+[2025-07-06 15:14:45,353] INFO [bins-file-sink|task-0] Set up the key converter class org.apache.kafka.connect.json.JsonConverter for task bins-file-sink-0 using the worker config (org.apache.kafka.connect.runtime.Worker:677)
+[2025-07-06 15:14:45,354] INFO [bins-file-sink|task-0] JsonConverterConfig values: 
 	converter.type = value
 	decimal.format = BASE64
 	replace.null.with.default = true
 	schemas.cache.size = 1000
 	schemas.enable = false
  (org.apache.kafka.common.config.AbstractConfig:371)
-[2025-07-06 15:14:45,354] INFO [drones-file-sink|task-0] Set up the value converter class org.apache.kafka.connect.json.JsonConverter for task drones-file-sink-0 using the worker config (org.apache.kafka.connect.runtime.Worker:683)
-[2025-07-06 15:14:45,354] INFO [drones-file-sink|task-0] Set up the header converter class org.apache.kafka.connect.storage.SimpleHeaderConverter for task drones-file-sink-0 using the worker config (org.apache.kafka.connect.runtime.Worker:690)
-[2025-07-06 15:14:45,358] INFO [drones-file-sink|task-0] Initializing: org.apache.kafka.connect.runtime.TransformationChain{} (org.apache.kafka.connect.runtime.Worker:1794)
-[2025-07-06 15:14:45,358] INFO [drones-file-sink|task-0] SinkConnectorConfig values: 
+[2025-07-06 15:14:45,354] INFO [bins-file-sink|task-0] Set up the value converter class org.apache.kafka.connect.json.JsonConverter for task bins-file-sink-0 using the worker config (org.apache.kafka.connect.runtime.Worker:683)
+[2025-07-06 15:14:45,354] INFO [bins-file-sink|task-0] Set up the header converter class org.apache.kafka.connect.storage.SimpleHeaderConverter for task bins-file-sink-0 using the worker config (org.apache.kafka.connect.runtime.Worker:690)
+[2025-07-06 15:14:45,358] INFO [bins-file-sink|task-0] Initializing: org.apache.kafka.connect.runtime.TransformationChain{} (org.apache.kafka.connect.runtime.Worker:1794)
+[2025-07-06 15:14:45,358] INFO [bins-file-sink|task-0] SinkConnectorConfig values: 
 	config.action.reload = restart
 	connector.class = org.apache.kafka.connect.file.FileStreamSinkConnector
 	errors.deadletterqueue.context.headers.enable = false
@@ -1311,16 +1311,16 @@ Caused by: org.apache.kafka.connect.errors.ConnectException: Failed to find any 
 	errors.tolerance = none
 	header.converter = null
 	key.converter = null
-	name = drones-file-sink
+	name = bins-file-sink
 	predicates = []
 	tasks.max = 1
 	tasks.max.enforce = true
-	topics = [drones]
+	topics = [bins]
 	topics.regex = 
 	transforms = []
 	value.converter = null
  (org.apache.kafka.common.config.AbstractConfig:371)
-[2025-07-06 15:14:45,359] INFO [drones-file-sink|task-0] EnrichedConnectorConfig values: 
+[2025-07-06 15:14:45,359] INFO [bins-file-sink|task-0] EnrichedConnectorConfig values: 
 	config.action.reload = restart
 	connector.class = org.apache.kafka.connect.file.FileStreamSinkConnector
 	errors.deadletterqueue.context.headers.enable = false
@@ -1333,23 +1333,23 @@ Caused by: org.apache.kafka.connect.errors.ConnectException: Failed to find any 
 	errors.tolerance = none
 	header.converter = null
 	key.converter = null
-	name = drones-file-sink
+	name = bins-file-sink
 	predicates = []
 	tasks.max = 1
 	tasks.max.enforce = true
-	topics = [drones]
+	topics = [bins]
 	topics.regex = 
 	transforms = []
 	value.converter = null
  (org.apache.kafka.common.config.AbstractConfig:371)
-[2025-07-06 15:14:45,364] INFO [drones-file-sink|task-0] ConsumerConfig values: 
+[2025-07-06 15:14:45,364] INFO [bins-file-sink|task-0] ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.offset.reset = earliest
 	bootstrap.servers = [localhost:9092]
 	check.crcs = true
 	client.dns.lookup = use_all_dns_ips
-	client.id = connector-consumer-drones-file-sink-0
+	client.id = connector-consumer-bins-file-sink-0
 	client.rack = 
 	connections.max.idle.ms = 540000
 	default.api.timeout.ms = 60000
@@ -1359,7 +1359,7 @@ Caused by: org.apache.kafka.connect.errors.ConnectException: Failed to find any 
 	fetch.max.bytes = 52428800
 	fetch.max.wait.ms = 500
 	fetch.min.bytes = 1
-	group.id = connect-drones-file-sink
+	group.id = connect-bins-file-sink
 	group.instance.id = null
 	group.protocol = classic
 	group.remote.assignor = null
@@ -1442,110 +1442,110 @@ Caused by: org.apache.kafka.connect.errors.ConnectException: Failed to find any 
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
  (org.apache.kafka.common.config.AbstractConfig:371)
-[2025-07-06 15:14:45,395] INFO [drones-file-sink|task-0] initializing Kafka metrics collector (org.apache.kafka.common.telemetry.internals.KafkaMetricsCollector:270)
-[2025-07-06 15:14:45,437] INFO [drones-file-sink|task-0] These configurations '[metrics.context.connect.kafka.cluster.id, metrics.context.connect.group.id]' were supplied but are not used yet. (org.apache.kafka.common.config.AbstractConfig:380)
-[2025-07-06 15:14:45,437] INFO [drones-file-sink|task-0] Kafka version: 4.0.0 (org.apache.kafka.common.utils.AppInfoParser:125)
-[2025-07-06 15:14:45,437] INFO [drones-file-sink|task-0] Kafka commitId: 985bc99521dd22bb (org.apache.kafka.common.utils.AppInfoParser:126)
-[2025-07-06 15:14:45,437] INFO [drones-file-sink|task-0] Kafka startTimeMs: 1751807685437 (org.apache.kafka.common.utils.AppInfoParser:127)
-[2025-07-06 15:14:45,445] INFO Created connector drones-file-sink (org.apache.kafka.connect.cli.ConnectStandalone:89)
-[2025-07-06 15:14:45,448] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Subscribed to topic(s): drones (org.apache.kafka.clients.consumer.internals.ClassicKafkaConsumer:501)
-[2025-07-06 15:14:45,448] INFO [drones-file-sink|task-0] AbstractConfig values: 
-	file = drones_output.json
+[2025-07-06 15:14:45,395] INFO [bins-file-sink|task-0] initializing Kafka metrics collector (org.apache.kafka.common.telemetry.internals.KafkaMetricsCollector:270)
+[2025-07-06 15:14:45,437] INFO [bins-file-sink|task-0] These configurations '[metrics.context.connect.kafka.cluster.id, metrics.context.connect.group.id]' were supplied but are not used yet. (org.apache.kafka.common.config.AbstractConfig:380)
+[2025-07-06 15:14:45,437] INFO [bins-file-sink|task-0] Kafka version: 4.0.0 (org.apache.kafka.common.utils.AppInfoParser:125)
+[2025-07-06 15:14:45,437] INFO [bins-file-sink|task-0] Kafka commitId: 985bc99521dd22bb (org.apache.kafka.common.utils.AppInfoParser:126)
+[2025-07-06 15:14:45,437] INFO [bins-file-sink|task-0] Kafka startTimeMs: 1751807685437 (org.apache.kafka.common.utils.AppInfoParser:127)
+[2025-07-06 15:14:45,445] INFO Created connector bins-file-sink (org.apache.kafka.connect.cli.ConnectStandalone:89)
+[2025-07-06 15:14:45,448] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Subscribed to topic(s): bins (org.apache.kafka.clients.consumer.internals.ClassicKafkaConsumer:501)
+[2025-07-06 15:14:45,448] INFO [bins-file-sink|task-0] AbstractConfig values: 
+	file = bins_output.json
  (org.apache.kafka.common.config.AbstractConfig:371)
-[2025-07-06 15:14:45,449] INFO [drones-file-sink|task-0] WorkerSinkTask{id=drones-file-sink-0} Sink task finished initialization and start (org.apache.kafka.connect.runtime.WorkerSinkTask:325)
-[2025-07-06 15:14:45,450] INFO [drones-file-sink|task-0] WorkerSinkTask{id=drones-file-sink-0} Executing sink task (org.apache.kafka.connect.runtime.WorkerSinkTask:211)
-[2025-07-06 15:14:45,469] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Cluster ID: qeqiJp3wQeOoKl_hMYdTvw (org.apache.kafka.clients.Metadata:365)
-[2025-07-06 15:14:45,581] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:937)
-[2025-07-06 15:14:45,583] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] (Re-)joining group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:605)
-[2025-07-06 15:14:45,609] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
-[2025-07-06 15:14:45,610] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1013)
-[2025-07-06 15:14:45,614] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:695)
-[2025-07-06 15:14:45,615] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Client requested disconnect from node 2147483646 (org.apache.kafka.clients.NetworkClient:391)
-[2025-07-06 15:14:45,618] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:937)
-[2025-07-06 15:14:45,619] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
-[2025-07-06 15:14:45,619] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1013)
-[2025-07-06 15:14:45,719] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:937)
-[2025-07-06 15:14:45,719] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1103)
-[2025-07-06 15:14:45,720] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] (Re-)joining group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:605)
-[2025-07-06 15:14:45,723] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
-[2025-07-06 15:14:45,723] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1013)
-[2025-07-06 15:14:45,723] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:695)
-[2025-07-06 15:14:45,723] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Client requested disconnect from node 2147483646 (org.apache.kafka.clients.NetworkClient:391)
-[2025-07-06 15:14:45,725] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:937)
-[2025-07-06 15:14:45,726] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
-[2025-07-06 15:14:45,726] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1013)
-[2025-07-06 15:14:45,815] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:937)
-[2025-07-06 15:14:45,816] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1103)
-[2025-07-06 15:14:45,817] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] (Re-)joining group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:605)
-[2025-07-06 15:14:45,820] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
-[2025-07-06 15:14:45,820] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1013)
-[2025-07-06 15:14:45,820] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:695)
-[2025-07-06 15:14:45,820] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Client requested disconnect from node 2147483646 (org.apache.kafka.clients.NetworkClient:391)
-[2025-07-06 15:14:45,822] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:937)
-[2025-07-06 15:14:45,822] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
-[2025-07-06 15:14:45,822] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1013)
-[2025-07-06 15:14:45,923] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:937)
-[2025-07-06 15:14:45,924] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1103)
-[2025-07-06 15:14:45,925] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] (Re-)joining group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:605)
-[2025-07-06 15:14:45,929] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
-[2025-07-06 15:14:45,930] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1013)
-[2025-07-06 15:14:45,930] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:695)
-[2025-07-06 15:14:45,930] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Client requested disconnect from node 2147483646 (org.apache.kafka.clients.NetworkClient:391)
-[2025-07-06 15:14:45,934] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:937)
-[2025-07-06 15:14:45,934] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
-[2025-07-06 15:14:45,935] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1013)
-[2025-07-06 15:14:46,049] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:937)
-[2025-07-06 15:14:46,050] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1103)
-[2025-07-06 15:14:46,050] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] (Re-)joining group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:605)
-[2025-07-06 15:14:46,076] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Request joining group due to: need to re-join with the given member-id: connector-consumer-drones-file-sink-0-862b8dd5-2bcf-403d-a5e9-d6ff74b3ebff (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1103)
-[2025-07-06 15:14:46,076] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] (Re-)joining group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:605)
-[2025-07-06 15:14:49,094] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Successfully joined group with generation Generation{generationId=1, memberId='connector-consumer-drones-file-sink-0-862b8dd5-2bcf-403d-a5e9-d6ff74b3ebff', protocol='range'} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:666)
-[2025-07-06 15:14:49,105] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Finished assignment for group at generation 1: {connector-consumer-drones-file-sink-0-862b8dd5-2bcf-403d-a5e9-d6ff74b3ebff=Assignment(partitions=[drones-0])} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:664)
-[2025-07-06 15:14:49,120] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Successfully synced group in generation Generation{generationId=1, memberId='connector-consumer-drones-file-sink-0-862b8dd5-2bcf-403d-a5e9-d6ff74b3ebff', protocol='range'} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:843)
-[2025-07-06 15:14:49,121] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Notifying assignor about the new Assignment(partitions=[drones-0]) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:324)
-[2025-07-06 15:14:49,125] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Adding newly assigned partitions: drones-0 (org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker:58)
-[2025-07-06 15:14:49,142] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Found no committed offset for partition drones-0 (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1508)
-[2025-07-06 15:14:49,174] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Resetting offset for partition drones-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=0}}. (org.apache.kafka.clients.consumer.internals.SubscriptionState:447)
-[2025-07-06 15:36:47,013] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Node 1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
-[2025-07-06 15:36:47,013] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Cancelled in-flight FETCH request with correlation id 3333 due to node 1 being disconnected (elapsed time since creation: 3ms, elapsed time since send: 3ms, throttle time: 0ms, request timeout: 30000ms) (org.apache.kafka.clients.NetworkClient:411)
-[2025-07-06 15:36:47,013] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Node 2147483646 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
-[2025-07-06 15:36:47,013] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Error sending fetch request (sessionId=210137271, epoch=2726) to node 1: (org.apache.kafka.clients.FetchSessionHandler:618)
+[2025-07-06 15:14:45,449] INFO [bins-file-sink|task-0] WorkerSinkTask{id=bins-file-sink-0} Sink task finished initialization and start (org.apache.kafka.connect.runtime.WorkerSinkTask:325)
+[2025-07-06 15:14:45,450] INFO [bins-file-sink|task-0] WorkerSinkTask{id=bins-file-sink-0} Executing sink task (org.apache.kafka.connect.runtime.WorkerSinkTask:211)
+[2025-07-06 15:14:45,469] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Cluster ID: qeqiJp3wQeOoKl_hMYdTvw (org.apache.kafka.clients.Metadata:365)
+[2025-07-06 15:14:45,581] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:937)
+[2025-07-06 15:14:45,583] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] (Re-)joining group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:605)
+[2025-07-06 15:14:45,609] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
+[2025-07-06 15:14:45,610] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1013)
+[2025-07-06 15:14:45,614] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:695)
+[2025-07-06 15:14:45,615] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Client requested disconnect from node 2147483646 (org.apache.kafka.clients.NetworkClient:391)
+[2025-07-06 15:14:45,618] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:937)
+[2025-07-06 15:14:45,619] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
+[2025-07-06 15:14:45,619] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1013)
+[2025-07-06 15:14:45,719] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:937)
+[2025-07-06 15:14:45,719] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1103)
+[2025-07-06 15:14:45,720] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] (Re-)joining group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:605)
+[2025-07-06 15:14:45,723] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
+[2025-07-06 15:14:45,723] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1013)
+[2025-07-06 15:14:45,723] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:695)
+[2025-07-06 15:14:45,723] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Client requested disconnect from node 2147483646 (org.apache.kafka.clients.NetworkClient:391)
+[2025-07-06 15:14:45,725] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:937)
+[2025-07-06 15:14:45,726] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
+[2025-07-06 15:14:45,726] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1013)
+[2025-07-06 15:14:45,815] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:937)
+[2025-07-06 15:14:45,816] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1103)
+[2025-07-06 15:14:45,817] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] (Re-)joining group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:605)
+[2025-07-06 15:14:45,820] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
+[2025-07-06 15:14:45,820] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1013)
+[2025-07-06 15:14:45,820] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:695)
+[2025-07-06 15:14:45,820] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Client requested disconnect from node 2147483646 (org.apache.kafka.clients.NetworkClient:391)
+[2025-07-06 15:14:45,822] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:937)
+[2025-07-06 15:14:45,822] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
+[2025-07-06 15:14:45,822] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1013)
+[2025-07-06 15:14:45,923] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:937)
+[2025-07-06 15:14:45,924] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1103)
+[2025-07-06 15:14:45,925] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] (Re-)joining group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:605)
+[2025-07-06 15:14:45,929] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
+[2025-07-06 15:14:45,930] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1013)
+[2025-07-06 15:14:45,930] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:695)
+[2025-07-06 15:14:45,930] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Client requested disconnect from node 2147483646 (org.apache.kafka.clients.NetworkClient:391)
+[2025-07-06 15:14:45,934] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:937)
+[2025-07-06 15:14:45,934] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
+[2025-07-06 15:14:45,935] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1013)
+[2025-07-06 15:14:46,049] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:937)
+[2025-07-06 15:14:46,050] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1103)
+[2025-07-06 15:14:46,050] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] (Re-)joining group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:605)
+[2025-07-06 15:14:46,076] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Request joining group due to: need to re-join with the given member-id: connector-consumer-bins-file-sink-0-862b8dd5-2bcf-403d-a5e9-d6ff74b3ebff (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1103)
+[2025-07-06 15:14:46,076] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] (Re-)joining group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:605)
+[2025-07-06 15:14:49,094] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Successfully joined group with generation Generation{generationId=1, memberId='connector-consumer-bins-file-sink-0-862b8dd5-2bcf-403d-a5e9-d6ff74b3ebff', protocol='range'} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:666)
+[2025-07-06 15:14:49,105] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Finished assignment for group at generation 1: {connector-consumer-bins-file-sink-0-862b8dd5-2bcf-403d-a5e9-d6ff74b3ebff=Assignment(partitions=[bins-0])} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:664)
+[2025-07-06 15:14:49,120] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Successfully synced group in generation Generation{generationId=1, memberId='connector-consumer-bins-file-sink-0-862b8dd5-2bcf-403d-a5e9-d6ff74b3ebff', protocol='range'} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:843)
+[2025-07-06 15:14:49,121] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Notifying assignor about the new Assignment(partitions=[bins-0]) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:324)
+[2025-07-06 15:14:49,125] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Adding newly assigned partitions: bins-0 (org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker:58)
+[2025-07-06 15:14:49,142] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Found no committed offset for partition bins-0 (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1508)
+[2025-07-06 15:14:49,174] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Resetting offset for partition bins-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=0}}. (org.apache.kafka.clients.consumer.internals.SubscriptionState:447)
+[2025-07-06 15:36:47,013] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Node 1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
+[2025-07-06 15:36:47,013] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Cancelled in-flight FETCH request with correlation id 3333 due to node 1 being disconnected (elapsed time since creation: 3ms, elapsed time since send: 3ms, throttle time: 0ms, request timeout: 30000ms) (org.apache.kafka.clients.NetworkClient:411)
+[2025-07-06 15:36:47,013] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Node 2147483646 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
+[2025-07-06 15:36:47,013] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Error sending fetch request (sessionId=210137271, epoch=2726) to node 1: (org.apache.kafka.clients.FetchSessionHandler:618)
 org.apache.kafka.common.errors.DisconnectException: null
-[2025-07-06 15:36:47,020] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: true. Rediscovery will be attempted. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
-[2025-07-06 15:36:47,124] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Node 1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
-[2025-07-06 15:36:47,124] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
-[2025-07-06 15:36:47,232] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Node 1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
-[2025-07-06 15:36:47,232] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
-[2025-07-06 15:36:47,433] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Rebootstrapping with [localhost/127.0.0.1:9092] (org.apache.kafka.clients.Metadata:314)
-[2025-07-06 15:36:47,434] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
-[2025-07-06 15:36:47,434] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
-[2025-07-06 15:36:47,434] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient:1255)
-[2025-07-06 15:36:47,434] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Rebootstrapping with [localhost/127.0.0.1:9092] (org.apache.kafka.clients.Metadata:314)
-[2025-07-06 15:36:47,613] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
-[2025-07-06 15:36:47,613] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
-[2025-07-06 15:36:47,613] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient:1255)
-[2025-07-06 15:36:48,015] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
-[2025-07-06 15:36:48,015] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
-[2025-07-06 15:36:48,015] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient:1255)
-[2025-07-06 15:36:48,817] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
-[2025-07-06 15:36:48,818] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
-[2025-07-06 15:36:48,818] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient:1255)
-[2025-07-06 15:36:49,804] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
-[2025-07-06 15:36:49,804] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
-[2025-07-06 15:36:49,804] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient:1255)
-[2025-07-06 15:36:50,806] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
-[2025-07-06 15:36:50,806] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
-[2025-07-06 15:36:50,806] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient:1255)
-[2025-07-06 15:36:51,807] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
-[2025-07-06 15:36:51,807] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
-[2025-07-06 15:36:51,807] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient:1255)
-[2025-07-06 15:36:52,713] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
-[2025-07-06 15:36:52,713] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
-[2025-07-06 15:36:52,713] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient:1255)
-[2025-07-06 15:36:52,713] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Rebootstrapping with [localhost/127.0.0.1:9092] (org.apache.kafka.clients.Metadata:314)
-[2025-07-06 15:36:52,764] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Rebootstrapping with [localhost/127.0.0.1:9092] (org.apache.kafka.clients.Metadata:314)
-[2025-07-06 15:36:53,239] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Rebootstrapping with [localhost/127.0.0.1:9092] (org.apache.kafka.clients.Metadata:314)
-[2025-07-06 15:36:53,290] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Rebootstrapping with [localhost/127.0.0.1:9092] (org.apache.kafka.clients.Metadata:314)
+[2025-07-06 15:36:47,020] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: true. Rediscovery will be attempted. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
+[2025-07-06 15:36:47,124] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Node 1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
+[2025-07-06 15:36:47,124] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
+[2025-07-06 15:36:47,232] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Node 1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
+[2025-07-06 15:36:47,232] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
+[2025-07-06 15:36:47,433] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Rebootstrapping with [localhost/127.0.0.1:9092] (org.apache.kafka.clients.Metadata:314)
+[2025-07-06 15:36:47,434] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
+[2025-07-06 15:36:47,434] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
+[2025-07-06 15:36:47,434] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient:1255)
+[2025-07-06 15:36:47,434] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Rebootstrapping with [localhost/127.0.0.1:9092] (org.apache.kafka.clients.Metadata:314)
+[2025-07-06 15:36:47,613] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
+[2025-07-06 15:36:47,613] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
+[2025-07-06 15:36:47,613] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient:1255)
+[2025-07-06 15:36:48,015] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
+[2025-07-06 15:36:48,015] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
+[2025-07-06 15:36:48,015] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient:1255)
+[2025-07-06 15:36:48,817] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
+[2025-07-06 15:36:48,818] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
+[2025-07-06 15:36:48,818] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient:1255)
+[2025-07-06 15:36:49,804] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
+[2025-07-06 15:36:49,804] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
+[2025-07-06 15:36:49,804] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient:1255)
+[2025-07-06 15:36:50,806] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
+[2025-07-06 15:36:50,806] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
+[2025-07-06 15:36:50,806] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient:1255)
+[2025-07-06 15:36:51,807] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
+[2025-07-06 15:36:51,807] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
+[2025-07-06 15:36:51,807] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient:1255)
+[2025-07-06 15:36:52,713] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
+[2025-07-06 15:36:52,713] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
+[2025-07-06 15:36:52,713] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient:1255)
+[2025-07-06 15:36:52,713] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Rebootstrapping with [localhost/127.0.0.1:9092] (org.apache.kafka.clients.Metadata:314)
+[2025-07-06 15:36:52,764] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Rebootstrapping with [localhost/127.0.0.1:9092] (org.apache.kafka.clients.Metadata:314)
+[2025-07-06 15:36:53,239] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Rebootstrapping with [localhost/127.0.0.1:9092] (org.apache.kafka.clients.Metadata:314)
+[2025-07-06 15:36:53,290] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Rebootstrapping with [localhost/127.0.0.1:9092] (org.apache.kafka.clients.Metadata:314)
 [2025-07-06 15:36:54,109] INFO Kafka Connect stopping (org.apache.kafka.connect.runtime.Connect:87)
 [2025-07-06 15:36:54,110] INFO Stopping REST server (org.apache.kafka.connect.runtime.rest.RestServer:363)
 [2025-07-06 15:36:54,110] INFO Stopped oejs.Server@682e445e{STOPPING}[12.0.15,sto=60000] (org.eclipse.jetty.server.Server:650)
@@ -1554,21 +1554,21 @@ org.apache.kafka.common.errors.DisconnectException: null
 [2025-07-06 15:36:54,121] INFO Stopped oeje10s.ServletContextHandler@18026052{ROOT,/,b=null,a=AVAILABLE,h=oeje10s.SessionHandler@489f62a3{STOPPED}} (org.eclipse.jetty.ee10.servlet.ServletContextHandler:1113)
 [2025-07-06 15:36:54,122] INFO REST server stopped (org.apache.kafka.connect.runtime.rest.RestServer:392)
 [2025-07-06 15:36:54,122] INFO Herder stopping (org.apache.kafka.connect.runtime.standalone.StandaloneHerder:118)
-[2025-07-06 15:36:54,122] INFO [drones-file-sink|task-0] Stopping task drones-file-sink-0 (org.apache.kafka.connect.runtime.Worker:1047)
-[2025-07-06 15:36:54,179] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
-[2025-07-06 15:36:54,179] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
-[2025-07-06 15:36:54,180] WARN [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient:1255)
-[2025-07-06 15:36:54,184] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Revoke previously assigned partitions drones-0 (org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker:80)
-[2025-07-06 15:36:54,185] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Resetting generation and member id due to: consumer pro-actively leaving the group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1056)
-[2025-07-06 15:36:54,185] INFO [drones-file-sink|task-0] [Consumer clientId=connector-consumer-drones-file-sink-0, groupId=connect-drones-file-sink] Request joining group due to: consumer pro-actively leaving the group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1103)
-[2025-07-06 15:36:54,189] INFO [drones-file-sink|task-0] Metrics scheduler closed (org.apache.kafka.common.metrics.Metrics:684)
-[2025-07-06 15:36:54,190] INFO [drones-file-sink|task-0] Closing reporter org.apache.kafka.common.metrics.JmxReporter (org.apache.kafka.common.metrics.Metrics:688)
-[2025-07-06 15:36:54,190] INFO [drones-file-sink|task-0] Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter (org.apache.kafka.common.metrics.Metrics:688)
-[2025-07-06 15:36:54,190] INFO [drones-file-sink|task-0] Metrics reporters closed (org.apache.kafka.common.metrics.Metrics:694)
-[2025-07-06 15:36:54,196] INFO [drones-file-sink|task-0] App info kafka.consumer for connector-consumer-drones-file-sink-0 unregistered (org.apache.kafka.common.utils.AppInfoParser:89)
-[2025-07-06 15:36:54,200] INFO [drones-file-sink|worker] Stopping connector drones-file-sink (org.apache.kafka.connect.runtime.Worker:451)
-[2025-07-06 15:36:54,200] INFO [drones-file-sink|worker] Scheduled shutdown for WorkerConnector{id=drones-file-sink} (org.apache.kafka.connect.runtime.WorkerConnector:295)
-[2025-07-06 15:36:54,201] INFO [drones-file-sink|worker] Completed shutdown for WorkerConnector{id=drones-file-sink} (org.apache.kafka.connect.runtime.WorkerConnector:315)
+[2025-07-06 15:36:54,122] INFO [bins-file-sink|task-0] Stopping task bins-file-sink-0 (org.apache.kafka.connect.runtime.Worker:1047)
+[2025-07-06 15:36:54,179] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:1072)
+[2025-07-06 15:36:54,179] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient:899)
+[2025-07-06 15:36:54,180] WARN [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient:1255)
+[2025-07-06 15:36:54,184] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Revoke previously assigned partitions bins-0 (org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker:80)
+[2025-07-06 15:36:54,185] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Resetting generation and member id due to: consumer pro-actively leaving the group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1056)
+[2025-07-06 15:36:54,185] INFO [bins-file-sink|task-0] [Consumer clientId=connector-consumer-bins-file-sink-0, groupId=connect-bins-file-sink] Request joining group due to: consumer pro-actively leaving the group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1103)
+[2025-07-06 15:36:54,189] INFO [bins-file-sink|task-0] Metrics scheduler closed (org.apache.kafka.common.metrics.Metrics:684)
+[2025-07-06 15:36:54,190] INFO [bins-file-sink|task-0] Closing reporter org.apache.kafka.common.metrics.JmxReporter (org.apache.kafka.common.metrics.Metrics:688)
+[2025-07-06 15:36:54,190] INFO [bins-file-sink|task-0] Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter (org.apache.kafka.common.metrics.Metrics:688)
+[2025-07-06 15:36:54,190] INFO [bins-file-sink|task-0] Metrics reporters closed (org.apache.kafka.common.metrics.Metrics:694)
+[2025-07-06 15:36:54,196] INFO [bins-file-sink|task-0] App info kafka.consumer for connector-consumer-bins-file-sink-0 unregistered (org.apache.kafka.common.utils.AppInfoParser:89)
+[2025-07-06 15:36:54,200] INFO [bins-file-sink|worker] Stopping connector bins-file-sink (org.apache.kafka.connect.runtime.Worker:451)
+[2025-07-06 15:36:54,200] INFO [bins-file-sink|worker] Scheduled shutdown for WorkerConnector{id=bins-file-sink} (org.apache.kafka.connect.runtime.WorkerConnector:295)
+[2025-07-06 15:36:54,201] INFO [bins-file-sink|worker] Completed shutdown for WorkerConnector{id=bins-file-sink} (org.apache.kafka.connect.runtime.WorkerConnector:315)
 [2025-07-06 15:36:54,201] INFO Worker stopping (org.apache.kafka.connect.runtime.Worker:249)
 [2025-07-06 15:36:54,202] INFO Stopped FileOffsetBackingStore (org.apache.kafka.connect.storage.FileOffsetBackingStore:72)
 [2025-07-06 15:36:54,202] INFO Metrics scheduler closed (org.apache.kafka.common.metrics.Metrics:684)

@@ -9,7 +9,7 @@ libraryDependencies += "org.apache.kafka" % "kafka-clients" % "3.5.1"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "drone-simulator",
+    name := "bin-simulator",
     libraryDependencies += munit % Test
   )
 

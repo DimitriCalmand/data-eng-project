@@ -7,7 +7,7 @@ import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
 
 import scala.jdk.CollectionConverters._
 
-case class DroneMsg(timestamp: String, droneId: String, latitude: Double, longitude: Double,
+case class BinMsg(timestamp: String, binId: String, latitude: Double, longitude: Double,
                     metric1: Double, metric2: Double, status: String)
 
 object AlertExtractor extends App {
@@ -20,7 +20,7 @@ object AlertExtractor extends App {
              "org.apache.kafka.common.serialization.StringDeserializer")
   cprops.put(ConsumerConfig.GROUP_ID_CONFIG, "alert-extractor-group")
   val consumer = new KafkaConsumer[String,String](cprops)
-  consumer.subscribe(java.util.Arrays.asList("drones"))
+  consumer.subscribe(java.util.Arrays.asList("bins"))
 
   // Configuration du producteur Kafka (pour topic "alerts")
   val pprops = new Properties()

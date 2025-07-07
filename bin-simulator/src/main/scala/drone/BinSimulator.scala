@@ -1,12 +1,12 @@
-// src/main/scala/DroneSimulator.scala
+// src/main/scala/BinSimulator.scala
 import java.util.Properties
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord, ProducerConfig}
 import scala.util.Random
 
-case class DroneMsg(timestamp: String, droneId: String, latitude: Double, longitude: Double,
+case class BinMsg(timestamp: String, binId: String, latitude: Double, longitude: Double,
                     metric1: Double, metric2: Double, status: String)
 
-object DroneSimulator extends App {
+object BinSimulator extends App {
   // Configuration du producteur Kafka
   val props = new Properties()
   props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092")
@@ -19,9 +19,9 @@ object DroneSimulator extends App {
   // Génération récursive de messages
   def loop(): Unit = {
     val ts = java.time.Instant.now.toString
-    val msg = DroneMsg(
+    val msg = BinMsg(
       timestamp = ts,
-      droneId   = s"DR-${Random.nextInt(10)+1}", 
+      binId   = s"DR-${Random.nextInt(10)+1}", 
       latitude  = 48.8 + Random.nextDouble()/10,
       longitude = 2.3 + Random.nextDouble()/10,
       metric1   = Random.nextDouble()*100,
@@ -29,11 +29,11 @@ object DroneSimulator extends App {
       status    = if (Random.nextDouble() < 0.1) "alert" else "ok"
     )
     // Construire JSON manuellement (on peut utiliser une librairie JSON pour plus de robustesse)
-    val json = s"""{"timestamp":"${msg.timestamp}","droneId":"${msg.droneId}",
+    val json = s"""{"timestamp":"${msg.timestamp}","binId":"${msg.binId}",
                   "latitude":${msg.latitude},"longitude":${msg.longitude},
                   "metric1":${msg.metric1},"metric2":${msg.metric2},
                   "status":"${msg.status}"}"""
-    producer.send(new ProducerRecord[String,String]("drones", json))
+    producer.send(new ProducerRecord[String,String]("bins", json))
     Thread.sleep(500)  // pause entre messages
     loop()  // récursion sans var ni boucle explicite (style fonctionnel)
   }
