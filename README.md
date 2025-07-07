@@ -1,7 +1,3 @@
-Voici une version simplifiée et adaptée du README pour un POC avec des **poubelles connectées** :
-
----
-
 # Scala IoT Bin POC – Kafka / Spark / Kafka Connect
 
 Ce dépôt contient un **Proof-of-Concept** complet illustrant une chaîne de traitement de données IoT pour des **poubelles connectées** dans une ville.
