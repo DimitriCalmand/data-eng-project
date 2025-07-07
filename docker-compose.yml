@@ -1,0 +1,84 @@
+version: "3.8"
+
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.6.0
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    ports:
+      - 2181:2181
+
+
+  kafka:
+    image: confluentinc/cp-kafka:7.6.0
+    depends_on:
+      - zookeeper
+    ports:
+      - 9092:9092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  kafka-connect:
+
+    image: confluentinc/cp-kafka-connect:7.6.0
+    depends_on:
+      - kafka
+    ports:
+      - 8083:8083
+    volumes:
+      - ./kafka-connect:/etc/kafka-connect
+      - ./data:/tmp/data
+      - ./kafka-connect/connect-standalone.properties:/etc/kafka-connect/connect-standalone.properties
+      - ./kafka-connect/kafka-connect.properties:/etc/kafka-connect/kafka-connect.properties
+    environment:
+      CONNECT_BOOTSTRAP_SERVERS: kafka:9092
+      CONNECT_REST_PORT: 8083
+      CONNECT_GROUP_ID: connect-cluster
+      CONNECT_REST_ADVERTISED_HOST_NAME: kafka-connect
+      CONNECT_CONFIG_STORAGE_TOPIC: _connect-configs
+      CONNECT_OFFSET_STORAGE_TOPIC: _connect-offsets
+      CONNECT_STATUS_STORAGE_TOPIC: _connect-status
+      CONNECT_KEY_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      CONNECT_VALUE_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      CONNECT_KEY_CONVERTER_SCHEMAS_ENABLE: "false"
+      CONNECT_VALUE_CONVERTER_SCHEMAS_ENABLE: "false"
+      CONNECT_PLUGIN_PATH: "/usr/share/java"
+    command:
+        - bash
+        - -c
+        - |
+          confluent-hub install --no-prompt confluentinc/kafka-connect-file:latest \
+          && /etc/confluent/docker/run & \
+          sleep 10 \
+          && connect-standalone /etc/kafka-connect/connect-standalone.properties /etc/kafka-connect/drones-sink.properties
+  drone-simulator:
+    build: ./drone-simulator
+    depends_on:
+      - kafka
+    environment:
+      KAFKA_BROKER: kafka:9092
+
+  alert-extractor:
+    build: ./alert-extractor
+    depends_on:
+      - kafka
+    environment:
+      KAFKA_BROKER: kafka:9092
+
+  alert-handler:
+    build: ./alert-handler
+    depends_on:
+      - kafka
+    environment:
+      KAFKA_BROKER: kafka:9092
+
+  spark-analyzer:
+    build: ./spark-analyzer
+    depends_on:
+      - kafka-connect
+    volumes:
+      - ./data:/tmp/data
