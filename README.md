@@ -59,18 +59,6 @@ Kafka Connect écrit les messages dans le fichier `bins_output.json` (format JSO
 
 ---
 
-## Lancer l’analyse batch (facultatif)
-
-Après quelques secondes/minutes de données :
-
-```bash
-# Depuis un terminal dans le container spark
-docker exec -it spark-analyzer /bin/bash
-
-# Lancer le job Spark
-sbt -Dbin.file=/app/kafka-connect/bins_output.json run
-```
-
 ### Requêtes exécutées :
 
 | Requête | Description                                                         |
