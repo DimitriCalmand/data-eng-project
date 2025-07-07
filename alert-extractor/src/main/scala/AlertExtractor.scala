@@ -6,12 +6,12 @@ import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord, Produce
 import scala.jdk.CollectionConverters._
 import scala.annotation.tailrec
 
-// Même structure de message que dans DroneSimulator (pour référence, ici non exploitée directement)
-case class DroneMsg(timestamp: String, droneId: String, latitude: Double, longitude: Double,
+// Même structure de message que dans BinSimulator (pour référence, ici non exploitée directement)
+case class BinMsg(timestamp: String, binId: String, latitude: Double, longitude: Double,
                     metric1: Double, metric2: Double, status: String)
 
 object AlertExtractor extends App {
-  // Configuration du consommateur Kafka (lecture du topic "drones")
+  // Configuration du consommateur Kafka (lecture du topic "bins")
   val cprops = new Properties()
   cprops.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092")
   cprops.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer")
@@ -20,7 +20,7 @@ object AlertExtractor extends App {
   // Optionnel: on peut définir auto.offset.reset à "earliest" pour lire les anciens messages si nécessaires
   // cprops.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest")
   val consumer = new KafkaConsumer[String, String](cprops)
-  consumer.subscribe(java.util.Arrays.asList("drones"))
+  consumer.subscribe(java.util.Arrays.asList("bins"))
 
   // Configuration du producteur Kafka (écriture vers le topic "alerts")
   val pprops = new Properties()
@@ -34,7 +34,7 @@ object AlertExtractor extends App {
   def loop(): Unit = {
     val records = consumer.poll(Duration.ofSeconds(1))  // récupération des messages (attente 1s max)
     records.asScala.foreach { record =>
-      val json = record.value()       // le message JSON complet du drone
+      val json = record.value()       // le message JSON complet du bin
       // Filtrage basé sur le contenu JSON : on vérifie si "status":"alert" est présent
       if (json.contains("\"status\":\"alert\"")) {
         // Si c'est une alerte, on la réémet sur le topic "alerts"

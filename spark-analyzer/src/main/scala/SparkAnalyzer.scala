@@ -4,59 +4,59 @@ import org.apache.spark.sql.SparkSession
 object SparkAnalyzer extends App {
   // Initialiser une session Spark en local
   val spark = SparkSession.builder()
-    .appName("DroneDataAnalyzer")
+    .appName("BinDataAnalyzer")
     .master("local[*]")
     .getOrCreate()
 
   // Lecture du fichier JSON généré par Kafka Connect (chaque ligne = un objet JSON)
-  val df = spark.read.json("drones_output.json")
+  val df = spark.read.json("bins_output.json")
   df.printSchema()        // Afficher le schéma déduit des données
   df.show(truncate = false)  // Afficher quelques lignes des données brutes
 
   // Créer une vue temporaire pour utiliser SQL
-  df.createOrReplaceTempView("drones")
+  df.createOrReplaceTempView("bins")
 
-  // Q1: Nombre total de messages par drone (agrégation COUNT)
+  // Q1: Nombre total de messages par bin (agrégation COUNT)
   val q1 = spark.sql("""
-    SELECT droneId, COUNT(*) AS total_msgs
-    FROM drones
-    GROUP BY droneId
+    SELECT binId, COUNT(*) AS total_msgs
+    FROM bins
+    GROUP BY binId
   """)
 
-  // Q2: Nombre d'alertes par drone (filtre sur status = 'alert')
+  // Q2: Nombre d'alertes par bin (filtre sur status = 'alert')
   val q2 = spark.sql("""
-    SELECT droneId, COUNT(*) AS total_alerts
-    FROM drones
+    SELECT binId, COUNT(*) AS total_alerts
+    FROM bins
     WHERE status = 'alert'
-    GROUP BY droneId
+    GROUP BY binId
   """)
 
   // Q3: Statistiques moyennes des métriques par statut (alert/ok)
   val q3 = spark.sql("""
     SELECT status, AVG(metric1) AS avg_metric1, AVG(metric2) AS avg_metric2
-    FROM drones
+    FROM bins
     GROUP BY status
   """)
 
-  // Q4: Positions uniques (latitude, longitude) reportées par chaque drone
+  // Q4: Positions uniques (latitude, longitude) reportées par chaque bin
   val q4 = spark.sql("""
-    SELECT droneId,
+    SELECT binId,
            COLLECT_SET(named_struct('lat', latitude, 'lon', longitude)) AS unique_positions
-    FROM drones
-    GROUP BY droneId
+    FROM bins
+    GROUP BY binId
   """)
 
   // Afficher les résultats de chaque requête
-  println("** Nombre total de messages par drone **")
+  println("** Nombre total de messages par bin **")
   q1.show()
 
-  println("** Nombre d'alertes par drone **")
+  println("** Nombre d'alertes par bin **")
   q2.show()
 
   println("** Moyenne des métriques par statut **")
   q3.show()
 
-  println("** Positions uniques par drone **")
+  println("** Positions uniques par bin **")
   q4.show(truncate = false)
 
   // Arrêt de la session Spark

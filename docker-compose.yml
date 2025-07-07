@@ -54,9 +54,9 @@ services:
           confluent-hub install --no-prompt confluentinc/kafka-connect-file:latest \
           && /etc/confluent/docker/run & \
           sleep 10 \
-          && connect-standalone /etc/kafka-connect/connect-standalone.properties /etc/kafka-connect/drones-sink.properties
-  drone-simulator:
-    build: ./drone-simulator
+          && connect-standalone /etc/kafka-connect/connect-standalone.properties /etc/kafka-connect/bins-sink.properties
+  bin-simulator:
+    build: ./bin-simulator
     depends_on:
       - kafka
     environment:
